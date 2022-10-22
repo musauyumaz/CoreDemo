@@ -13,8 +13,20 @@ namespace Persistence.EfCoreEntitiesMapping
     {
         public void Configure(EntityTypeBuilder<About> builder)
         {
-            builder.Property(a => a.Id);
             builder.HasKey(a => a.Id);
+            builder.Property(a => a.Id).ValueGeneratedOnAdd();
+
+            builder.Property(a => a.Detail1).HasMaxLength(500).IsRequired();
+            builder.Property(a => a.Detail2).HasMaxLength(500).IsRequired();
+            builder.Property(a => a.Image1).HasMaxLength(250).IsRequired();
+            builder.Property(a => a.Image2).HasMaxLength(250).IsRequired();
+            builder.Property(a => a.MapLocation).HasMaxLength(250).IsRequired();
+
+            builder.Property(b => b.CreatedDate).IsRequired();
+            builder.Property(b => b.UpdatedDate).IsRequired();
+            builder.Property(b => b.IsActive).IsRequired();
+
+            builder.ToTable("Abouts");
         }
     }
 }
