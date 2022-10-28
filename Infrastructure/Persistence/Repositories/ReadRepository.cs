@@ -22,24 +22,36 @@ namespace Persistence.Repositories
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public IQueryable<T> GetAll()
+        public IQueryable<T> GetAll(bool tracking = true)
         {
-            return Table.AsQueryable();
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = query.AsNoTracking();
+            return query;
         }
 
-        public T GetById(int id)
+        public T GetById(int id, bool tracking = true)
         {
-            return Table.FirstOrDefault(data => data.Id == id);
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = Table.AsNoTracking();
+            return query.FirstOrDefault(data => data.Id == id);
         }
 
-        public T GetSingle(Expression<Func<T, bool>> method)
+        public T GetSingle(Expression<Func<T, bool>> method, bool tracking = true)
         {
-            return Table.FirstOrDefault(method);
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = query.AsNoTracking();
+            return query.FirstOrDefault(method);
         }
 
-        public IQueryable<T> GetWhere(Expression<Func<T, bool>> method)
+        public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
         {
-            return Table.Where(method);
+            var query = Table.Where(method);
+            if (!tracking)
+                query = query.AsNoTracking();
+            return query;
         }
     }
 }

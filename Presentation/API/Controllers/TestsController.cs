@@ -1,6 +1,5 @@
 ﻿using Application.Repositories.CategoryRepository;
 using Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -20,14 +19,17 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            _categoryWriteRepository.AddRange(new List<Category>()
-            {
-                new() {Name = "Yazılım",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
-                new() {Name = "Teknoloji",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
-                new() {Name = "Tiyatro",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
-                new() {Name = "Sinema & Film",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
-                new() {Name = "Oyun",Description="Burası açıklama alanıdır.",IsActive = false,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow}
-            });
+            //_categoryWriteRepository.AddRange(new List<Category>()
+            //{
+            //    new() {Name = "Yazılım",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
+            //    new() {Name = "Teknoloji",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
+            //    new() {Name = "Tiyatro",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
+            //    new() {Name = "Sinema & Film",Description="Burası açıklama alanıdır.",IsActive = true,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow},
+            //    new() {Name = "Oyun",Description="Burası açıklama alanıdır.",IsActive = false,CreatedDate = DateTime.UtcNow,UpdatedDate = DateTime.UtcNow}
+            //});
+            //_categoryWriteRepository.Save();
+            var category = _categoryReadRepository.GetById(6,false);
+            category.Name = "Test";
             _categoryWriteRepository.Save();
             return Ok();
         }

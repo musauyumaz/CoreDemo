@@ -1,5 +1,7 @@
 ﻿using Domain.Entities;
+using Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Persistence.EfCoreEntitiesMapping;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,25 @@ namespace Persistence.Contexts
             modelBuilder.ApplyConfiguration(new CommentMap());
             modelBuilder.ApplyConfiguration(new ContactMap());
             modelBuilder.ApplyConfiguration(new WriterMap());
+        }
+        public override int SaveChanges()
+        {
+            //ChangeTracker : Entityler üzerinden yapılan değişikliklerin ya da yeni eklenen verinin yakalanmasını sağlayan property'dir. Update operasyonlarında Track edilen verileri yakalayıp elde etmemizi sağlar.
+
+            var datas = ChangeTracker.Entries<BaseEntity>();
+
+            foreach (var data in datas)
+            {
+                if(data.State == EntityState.Modified)
+                    data.Entity.UpdatedDate = DateTime.UtcNow;
+                if (data.State == EntityState.Added)
+                {
+                    data.Entity.CreatedDate = DateTime.UtcNow;
+                    data.Entity.IsActive = true;
+                }
+            }
+
+            return base.SaveChanges();
         }
 
     }

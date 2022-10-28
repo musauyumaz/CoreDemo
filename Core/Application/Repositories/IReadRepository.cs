@@ -10,19 +10,9 @@ namespace Application.Repositories
 {
     public interface IReadRepository<T> : IRepository<T> where T : BaseEntity
     {
-        IQueryable<T> GetAll();
-        IQueryable<T> GetWhere(Expression<Func<T,bool>> method);
-        T GetSingle(Expression<Func<T, bool>> method);
-        T GetById(int id);
-    }
-    public interface IWriteRepository<T> : IRepository<T> where T : BaseEntity
-    {
-        bool Add(T model);
-        bool AddRange(IList<T> datas);
-        bool Remove(T model);
-        bool Remove(int id);
-        bool RemoveRange(IList<T> datas);
-        bool Update(T model);
-        int Save();
+        IQueryable<T> GetAll(bool tracking = true);
+        IQueryable<T> GetWhere(Expression<Func<T,bool>> method, bool tracking = true);
+        T GetSingle(Expression<Func<T, bool>> method, bool tracking = true);
+        T GetById(int id, bool tracking = true);
     }
 }
