@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Common;
+using Domain.Entities.CrossTables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,8 @@ namespace Domain.Entities
     {
         public string Detail1 { get; set; }
         public string Detail2 { get; set; }
-        public string Image1 { get; set; }
-        public string Image2 { get; set; }
         public string MapLocation { get; set; }
+
+        public ICollection<AboutImageFileAbout> AboutImageFiles { get; set; }
     }
 }

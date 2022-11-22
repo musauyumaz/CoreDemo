@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Common;
+using Domain.Entities.CrossTables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,10 +17,9 @@ namespace Domain.Entities
         public int CategoryId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public string Image { get; set; }
-        public string ThumbnailImage { get; set; }
 
         public Category Category { get; set; }
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<BlogImageFileBlog> BlogImageFiles { get; set; }
     }
 }

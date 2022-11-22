@@ -1,13 +1,9 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Common;
+using Domain.Entities.Storages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Persistence.EfCoreEntitiesMapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Persistence.Contexts
 {
@@ -21,21 +17,18 @@ namespace Persistence.Contexts
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<Domain.Entities.Storages.File> Files { get; set; }
+        public DbSet<AboutImageFile> AboutImageFiles { get; set; }
+        public DbSet<BlogImageFile> BlogImageFiles { get; set; }                                                                                                                               
+        public DbSet<WriterImageFile> WriterImageFiles { get; set; }
+        
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new AboutMap());
-            modelBuilder.ApplyConfiguration(new BlogMap());
-            modelBuilder.ApplyConfiguration(new CategoryMap());
-            modelBuilder.ApplyConfiguration(new CommentMap());
-            modelBuilder.ApplyConfiguration(new ContactMap());
-            modelBuilder.ApplyConfiguration(new WriterMap());
+        protected override void OnModelCreating(ModelBuilder modelBuilder)        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public override int SaveChanges()
         {
-            //ChangeTracker : Entityler üzerinden yapılan değişikliklerin ya da yeni eklenen verinin yakalanmasını sağlayan property'dir. Update operasyonlarında Track edilen verileri yakalayıp elde etmemizi sağlar.
-
             var datas = ChangeTracker.Entries<BaseEntity>();
 
             foreach (var data in datas)

@@ -18,7 +18,6 @@ namespace Persistence.EfCoreEntitiesMapping
 
             builder.Property(w => w.FullName).HasMaxLength(100);
             builder.Property(w => w.About).HasMaxLength(300);
-            builder.Property(w => w.Image).HasMaxLength(250);
             builder.Property(w => w.Email).HasMaxLength(100);
             builder.Property(w => w.Password).HasMaxLength(25);
 

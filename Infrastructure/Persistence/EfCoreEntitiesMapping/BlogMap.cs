@@ -18,8 +18,6 @@ namespace Persistence.EfCoreEntitiesMapping
 
             builder.Property(b => b.Title).HasMaxLength(100).IsRequired();
             builder.Property(b => b.Content).HasMaxLength(300).IsRequired();
-            builder.Property(b => b.Image).HasMaxLength(250).IsRequired();
-            builder.Property(b => b.ThumbnailImage).HasMaxLength(250).IsRequired();
 
             builder.Property(b => b.CreatedDate).IsRequired();
             builder.Property(b => b.UpdatedDate).IsRequired();
