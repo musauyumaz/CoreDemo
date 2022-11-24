@@ -14,8 +14,4 @@ namespace Application.Abstractions.Storages
         List<string> GetFiles(string pathOrContainerName);
         bool HasFile(string pathOrContainerName, string fileName);
     }
-    public interface IStorageService : IStorage
-    {
-        public string StorageName { get;}
-    }
 }

@@ -10,7 +10,7 @@ namespace API.Controllers
     {
         private readonly ICategoryReadRepository _categoryReadRepository;
         private readonly ICategoryWriteRepository _categoryWriteRepository;
-
+        private readonly IWebHostEnvironment webHostEnvironment;
         public TestsController(ICategoryWriteRepository categoryWriteRepository, ICategoryReadRepository categoryReadRepository)
         {
             _categoryWriteRepository = categoryWriteRepository;
