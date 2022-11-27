@@ -15,6 +15,6 @@ namespace Domain.Entities
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public ICollection<WriterImageFileWriter> WriterImageFiles { get; set; }
+        public virtual ICollection<WriterImageFileWriter>? WriterImageFiles { get; set; }
     }
 }

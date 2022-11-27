@@ -7,7 +7,7 @@ namespace Domain.Entities.CrossTables
         public int AboutId { get; set; }
         public int AboutImageFileId { get; set; }
 
-        public About About { get; set; }
-        public AboutImageFile AboutImageFile { get; set; }
+        public virtual About? About { get; set; }
+        public virtual AboutImageFile? AboutImageFile { get; set; }
     }
 }

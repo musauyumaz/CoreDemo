@@ -14,11 +14,6 @@ using Persistence.Repositories.CategoryRepository;
 using Persistence.Repositories.CommentRepository;
 using Persistence.Repositories.ContactRepository;
 using Persistence.Repositories.WriterRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence
 {

@@ -16,7 +16,7 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public ICollection<Blog> Blogs { get; set; }
+        public virtual ICollection<Blog>? Blogs { get; set; }
 
     }
 }

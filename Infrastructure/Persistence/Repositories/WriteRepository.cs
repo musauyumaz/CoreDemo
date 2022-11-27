@@ -3,11 +3,6 @@ using Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Persistence.Contexts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
@@ -43,8 +38,10 @@ namespace Persistence.Repositories
         public bool Remove(int id)
         {
             T model = Table.FirstOrDefault(data => data.Id == id);
-            EntityEntry entityEntry = Table.Remove(model);
-            return entityEntry.State == EntityState.Deleted;
+            model.IsNotActive = true;
+            //EntityEntry entityEntry = Table.Remove(model);
+            //return entityEntry.State == EntityState.Deleted;
+            return true;
         }
 
         public bool RemoveRange(IList<T> datas)

@@ -9,6 +9,6 @@ namespace Domain.Entities.Storages
 {
     public class WriterImageFile : File
     {
-        public ICollection<WriterImageFileWriter> Writers { get; set; }
+        public virtual ICollection<WriterImageFileWriter>? Writers { get; set; }
     }
 }

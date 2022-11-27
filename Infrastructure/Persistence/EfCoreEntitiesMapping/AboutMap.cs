@@ -22,7 +22,7 @@ namespace Persistence.EfCoreEntitiesMapping
 
             builder.Property(b => b.CreatedDate).IsRequired();
             builder.Property(b => b.UpdatedDate).IsRequired();
-            builder.Property(b => b.IsActive).IsRequired();
+            builder.Property(b => b.IsNotActive).IsRequired();
 
             builder.ToTable("Abouts");
         }

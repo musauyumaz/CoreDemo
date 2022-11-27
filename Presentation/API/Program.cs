@@ -1,14 +1,17 @@
+using Application;
 using Infrastructure;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddPersistenceServices();
-builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
 builder.Services.AddStorage<AzureStorage>();
+builder.Services.AddPersistenceServices(); 
+builder.Services.AddInfrastructureServices();
+builder.Services.AddControllers();
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

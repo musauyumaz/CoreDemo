@@ -9,6 +9,6 @@ namespace Domain.Entities.Storages
 {
     public class AboutImageFile : File
     {
-        public ICollection<AboutImageFileAbout> Abouts { get; set; }
+        public virtual ICollection<AboutImageFileAbout>? Abouts { get; set; }
     }
 }

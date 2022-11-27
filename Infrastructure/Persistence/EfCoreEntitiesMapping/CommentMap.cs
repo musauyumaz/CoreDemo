@@ -22,7 +22,7 @@ namespace Persistence.EfCoreEntitiesMapping
 
             builder.Property(c => c.CreatedDate).IsRequired();
             builder.Property(c => c.UpdatedDate).IsRequired();
-            builder.Property(c => c.IsActive).IsRequired();
+            builder.Property(c => c.IsNotActive).IsRequired();
 
             builder.HasOne(c => c.Blog)
                 .WithMany(b => b.Comments)

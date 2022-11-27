@@ -18,8 +18,8 @@ namespace Domain.Entities
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public Category Category { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<BlogImageFileBlog> BlogImageFiles { get; set; }
+        public virtual Category? Category { get; set; }
+        public virtual ICollection<Comment>? Comments { get; set; }
+        public virtual ICollection<BlogImageFileBlog>? BlogImageFiles { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace Persistence.Contexts
                 if (data.State == EntityState.Added)
                 {
                     data.Entity.CreatedDate = DateTime.UtcNow;
-                    data.Entity.IsActive = true;
+                    data.Entity.IsNotActive = false;
                 }
             }
 

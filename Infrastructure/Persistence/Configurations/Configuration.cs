@@ -14,7 +14,7 @@ namespace Persistence.Configurations
             get
             {
                 ConfigurationManager configurationManager = new();
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/MVC"));
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/API"));
                 configurationManager.AddJsonFile("appsettings.json");
                 return configurationManager.GetConnectionString("BlogDemoDb");
             }

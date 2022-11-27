@@ -43,7 +43,7 @@ namespace Persistence.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("MapLocation")
@@ -78,7 +78,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
@@ -112,7 +112,7 @@ namespace Persistence.Migrations
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -147,7 +147,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Title")
@@ -186,7 +186,7 @@ namespace Persistence.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Message")
@@ -276,7 +276,7 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Path")
@@ -320,7 +320,7 @@ namespace Persistence.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool>("IsNotActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Password")

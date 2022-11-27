@@ -23,7 +23,7 @@ namespace Persistence.EfCoreEntitiesMapping
 
             builder.Property(w => w.CreatedDate).IsRequired();
             builder.Property(w => w.UpdatedDate).IsRequired();
-            builder.Property(w => w.IsActive).IsRequired();
+            builder.Property(w => w.IsNotActive).IsRequired();
 
             builder.ToTable("Writers");
         }

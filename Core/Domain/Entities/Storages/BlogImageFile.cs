@@ -9,6 +9,6 @@ namespace Domain.Entities.Storages
 {
     public class BlogImageFile : File
     {
-        public ICollection<BlogImageFileBlog> Blogs { get; set; }
+        public virtual ICollection<BlogImageFileBlog>? Blogs { get; set; }
     }
 }

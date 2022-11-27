@@ -12,7 +12,7 @@ namespace Domain.Entities.CrossTables
         public int BlogId { get; set; }
         public int BlogImageFileId { get; set; }
 
-        public Blog Blog { get; set; }
-        public BlogImageFile BlogImageFile { get; set; }
+        public virtual Blog? Blog { get; set; }
+        public virtual BlogImageFile? BlogImageFile { get; set; }
     }
 }
